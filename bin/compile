@@ -4,5 +4,9 @@ echo "-----> Found a .slugcleanup"
 
 cd $1
 
+shopt -s extglob
+
 cat .slugcleanup | xargs -I {} bash -c 'rm -rf {}'
 rm .slugcleanup
+
+shopt -u extglob
